@@ -2,6 +2,9 @@
 
 Athena는 서버리스 환경에서 Data Lake를 위한 interative query를 제공합니다.
 
+![image](https://user-images.githubusercontent.com/52392004/184464605-c71155b2-b466-42e1-86e7-a17358322b25.png)
+
+
 ## 특징
 
 #### Simplicity

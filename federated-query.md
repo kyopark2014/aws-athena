@@ -14,7 +14,7 @@ Federated query는 AWS Lambda를 통해 Federated data souce를 조회하게 됩
 
 아래와 같이 RDB에 있는데 데이터와 CloudWatch의 로그를 아래처럼 Query 할 수 있습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/184466357-4f9f1590-7fbf-4075-837e-04eb058b8f0c.png)
+![image](https://user-images.githubusercontent.com/52392004/184466443-6e7edcf4-6fc6-4af7-8db2-bfc0289f651b.png)
 
 ```sql
 WITH order_logging AS (

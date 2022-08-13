@@ -9,7 +9,8 @@ Federated query는 AWS Lambda를 통해 Federated data souce를 조회하게 됩
 
 ![image](https://user-images.githubusercontent.com/52392004/184465501-eeed9436-6e48-4e9e-a607-22d4a8d34cab.png)
 
-  
+
+## Data Souce 연결 방법
 
 1) Discover: data source connector를 deploy 합니다.
 
@@ -23,7 +24,25 @@ Federated query는 AWS Lambda를 통해 Federated data souce를 조회하게 됩
 3) Query: <CatalogName>.Database.Table로 SQL Query를 수행합니다. 
 
 <img width="374" alt="image" src="https://user-images.githubusercontent.com/52392004/184465589-c5013299-48a9-475b-a79d-74b6b049252e.png">
+
+## 사용가능한 Data Socue의 종류
+
+최신 소스는 [Amazon Athena Query Federation](https://github.com/awslabs/aws-athena-query-federation)을 참조합니다. 
   
+- AWS CMDB
+- Amazon Timestream
+- Amazon Neptune
+- Hbase
+- Amazon DocumentDB
+- Amazon DynamoDB
+- JDBC
+- Amazon Elasticsearch
+- CloudWatch Logs
+- CloudWatch Metrics 
+- TPDS Data Generator
+- Vertica
+- Redis
+
 
 ## Reference   
 

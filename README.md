@@ -37,4 +37,6 @@ Athena는 서버리스 환경에서 Data Lake를 위한 interative query를 제�
 
 ## Reference
 
+[Amazon Athena](https://aws.amazon.com/athena/?nc1=h_ls&whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)
+
 [MakeMyTrip: Leveraging Athena Federated Query to break data silos], Reinvent 2021 ANA301

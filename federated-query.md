@@ -58,6 +58,28 @@ WHERE logs.log_level = 'ERROR’
       NOW() – INTERVAL '1' DAY 
 ```
 
+## Use case: Lightweight ETL workflows
+
+Federated query를 이용하여 light weight ETL을 수행할 수 있습니다. 이때 CTAS(CREATE TABLE AS)나 UPLOAD를 이용합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/184466685-b30cf234-02b7-480a-bb7b-2effd4987de9.png)
+
+이때 사용할수 있는 SQL Statement의 예제는 아래와 같습니다. 
+
+```sql
+CREATE TABLE data_lake.daily_orders
+WITH (
+  format = 'Parquet',
+  external_location =  's3://…'
+)
+AS SELECT *
+FROM active_orders ao
+  LEFT JOIN customer_metadata cm
+  ON ao.customer_id = cm._id
+WHERE status <> 'pending’
+  AND order_date = CURRENT_DATE
+```
+
 ## Data Souce 연결 방법
 
 1) Discover: data source connector를 deploy 합니다.

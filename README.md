@@ -34,6 +34,9 @@ Athena는 서버리스 환경에서 Data Lake를 위한 interative query를 제�
 
 [Common Patterns](https://github.com/kyopark2014/aws-athena/blob/main/common-patterns.md)에서는 Athena를 사용하는 패턴에 대해 설명합니다. 
 
+## Federated Query
+
+[Federated Query](https://github.com/kyopark2014/aws-athena/blob/main/federated-query.md)에서는 Athena를 통해 S3와 같은 AWS service뿐 아니라, on-premise나 다른 cloud 데이터 소스를 query 하는 방법에 대해 소개합니다. 
 
 ## Reference
 

@@ -38,8 +38,32 @@ Athena는 서버리스 환경에서 Data Lake를 위한 interative query를 제�
 
 [Federated Query](https://github.com/kyopark2014/aws-athena/blob/main/federated-query.md)에서는 Athena를 통해 S3와 같은 AWS service뿐 아니라, on-premise나 다른 cloud 데이터 소스를 query 하는 방법에 대해 소개합니다. 
 
+
+## Simple pricing
+
+- DDL operations - Free
+- SQL operations - Free
+- Query concurrency - Free
+- Data scanned - $5 / TB
+
+## 지원하는 데이터 포맷
+
+ANSI SQL을 지원하는 Presto engine을 이용하여 SQL query를 수행하며, 지원하는 포맷은 아래와 같습니다. 
+
+- CSV
+- Apache Weblogs
+- JSON
+- Parquet
+- ORC
+
+
+
 ## Reference
 
 [Amazon Athena](https://aws.amazon.com/athena/?nc1=h_ls&whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)
 
 [MakeMyTrip: Leveraging Athena Federated Query to break data silos], Reinvent 2021 ANA301
+
+[How to use SQL to Query S3 files with AWS Athena | Step by Step Tutorial](https://www.youtube.com/watch?v=M5ptG0YaqAs)
+
+[Amazon Athena에 대해 알아보기](https://www.youtube.com/watch?v=MAgd-zeB4QU)

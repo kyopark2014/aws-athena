@@ -10,6 +10,31 @@ Federated query는 AWS Lambda를 통해 Federated data souce를 조회하게 됩
 ![image](https://user-images.githubusercontent.com/52392004/184465501-eeed9436-6e48-4e9e-a607-22d4a8d34cab.png)
 
 
+## Use case: Join transactional data with logs
+
+아래와 같이 RDB에 있는데 데이터와 CloudWatch의 로그를 아래처럼 Query 할 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/184466357-4f9f1590-7fbf-4075-837e-04eb058b8f0c.png)
+
+```sql
+WITH order_logging AS (
+  SELECT
+    REGEXP_EXTRACT(…) AS order_id,
+    REGEXP_EXTRACT(…) AS log_level
+  FROM cwl."/var/lambda/order-processor"
+)
+SELECT orders.order_id, logs.message
+FROM active_orders orders
+  LEFT JOIN order_logging logs
+  USING (order_id)
+WHERE logs.log_level = 'ERROR’
+  AND FROM_UNIXTIME(logs.time / 1000) >
+      NOW() – INTERVAL '1' DAY
+  AND orders.order_status = 'aborted'
+  AND orders.order_date >
+      NOW() – INTERVAL '1' DAY 
+```
+
 ## Data Souce 연결 방법
 
 1) Discover: data source connector를 deploy 합니다.

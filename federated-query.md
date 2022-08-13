@@ -37,7 +37,7 @@ GROUP BY cm.email
 
 아래와 같이 RDB에 있는데 데이터와 CloudWatch의 로그를 아래처럼 Query 할 수 있습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/184466443-6e7edcf4-6fc6-4af7-8db2-bfc0289f651b.png)
+![image](https://user-images.githubusercontent.com/52392004/184467132-3d3e4509-2eba-42b7-a67b-3a97ecd4da33.png)
 
 ```sql
 WITH order_logging AS (

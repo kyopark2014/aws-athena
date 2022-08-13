@@ -9,6 +9,29 @@ Federated query는 AWS Lambda를 통해 Federated data souce를 조회하게 됩
 
 ![image](https://user-images.githubusercontent.com/52392004/184465501-eeed9436-6e48-4e9e-a607-22d4a8d34cab.png)
 
+## Use case: Combine data from different sources
+
+Dashboard나, SagaMaker에서 여러개의 다른 data source들을 한꺼번에 query 할 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/184466532-454d354c-ad23-4ac4-a752-1b87f4a90f98.png)
+
+이때 사용하는 SQL statement의 예 입니다. 
+
+```sql
+SELECT cm.email
+FROM active_orders ao
+  LEFT JOIN customer_metadata cm
+  ON ao.customer_id = cm._id
+  LEFT JOIN order_history oh
+  ON ao.customer_id = oh.customer_id
+  LEFT JOIN shipping_status ss
+  ON ss.shipment_id = ao.shipment_id
+WHERE ss.shipment_delayed
+  AND SUM(oh.order_total) > 1000
+GROUP BY cm.email
+```
+
+
 
 ## Use case: Join transactional data with logs
 

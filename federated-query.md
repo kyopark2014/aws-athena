@@ -113,7 +113,40 @@ WHERE status <> 'pending’
 - Vertica
 - Redis
 
+## Federated data source로 부터 query 하는 방법 
 
+일반적인 SQL에서 data source로 부터 Query를 수행할 수 있습니다.   
+  
+```sql 
+SELECT col1, col2
+FROM MyDataSource.my_schema.my_table
+WHERE col3 = 123
+```  
+
+Lambda에대한 connector는 아래와 같이 "lambda:"로 시작되는 prefix를 가지고, 데이터소스로 등록하지 않더라도 이용할 수 있습니다. 
+  
+```sql
+SELECT col1, col2
+FROM "lambda:my_connector_function".my_schema.my_table
+WHERE col3 = 123
+```
+
+cloudwatch 로그 coonector가 schema로서 log group name을 이용할 수 있습니다.   
+  
+```sql
+SELECT message
+FROM cw_logs."/aws/lambda/some-function".all_log_streams
+WHERE message LIKE "%INFO%"
+```  
+
+HBASE connector의 prefix로 column family와 colon을 쓸수 있습니다.   
+  
+```sql  
+SELECT "summary:order_id", "details:fee"
+FROM hbasedb.sales.transactions
+WHERE "summary:total" > 40
+```  
+  
 ## Reference   
 
 [Amazon Athena Query Federation](https://github.com/awslabs/aws-athena-query-federation)
